@@ -28,7 +28,7 @@ try
     
     int nombreClients;
     
-    nombreClients = 1;
+    nombreClients = 0;
     
     while (true)
         {
