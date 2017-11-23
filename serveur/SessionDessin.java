@@ -12,10 +12,13 @@ package serveur;
  * 
  * */
 import java.net.Socket;
+import java.awt.Graphics;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.SocketException;
+
+import dessinerCOR.dessinerCOR;
 
 
 public class SessionDessin extends Thread
@@ -43,6 +46,7 @@ try
     {
     requête = this.fluxEntrant.readLine();  // lit le titre et les 4 coordonnées Ox, Oy, largeur et hauteur de la fenêtre, les arguments sont séparés par des ","
     System.out.println("requête reçue : " + requête);
+    
     String arguments[] = requête.split(",");            // redondance de code à éliminer
     
     String titre;
@@ -61,7 +65,19 @@ try
         requête = this.fluxEntrant.readLine();  // lit l'instruction de tracé et les 4 paramètres entiers du tracé, les arguments sont séparés par des ","
         
         System.out.println("requête reçue : " + requête);
-        arguments = requête.split(",");                     // redondance de code à éliminer
+        //Créer la chaîne d'expert
+        //
+        //
+        //expert1.dessiner(requete, cadreDessin);
+        dessinerCOR expert1 = new dessinerCOR();
+        dessinerCOR expert2 = new dessinerCOR(expert1);
+        dessinerCOR expert3 = new dessinerCOR(expert2);
+        dessinerCOR expert4 = new dessinerCOR(expert3);
+        
+        expert1.dessiner(requête, cadreDessin);
+        
+        /*
+        arguments = requête.split(",");                     
     
         String opération;
         int x1, y1, x2, y2;
@@ -72,7 +88,7 @@ try
         x2 = Integer.parseInt(arguments[3].trim());
         y2 = Integer.parseInt(arguments[4].trim());
     
-        if (opération.equalsIgnoreCase("drawLine"))             // if-else à éliminer par l'utilisation du Design Pattern "Chain Of Responsibility" 
+        if (opération.equalsIgnoreCase("drawLine"))            
             cadreDessin.graphics.drawLine(x1,y1,x2,y2);
            
         else
@@ -81,12 +97,10 @@ try
                
             else
                 {
-                /* Opération non reconnue, on ne fait rien */
                 }
-        cadreDessin.getBufferStrategy().show();
-        } // while
+        cadreDessin.getBufferStrategy().show();*/
+        }
     }
-
 catch (SocketException e)
     {
     System.out.println("session de dessin terminée par le client");
