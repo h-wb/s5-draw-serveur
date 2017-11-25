@@ -69,10 +69,16 @@ try
         //
         //
         //expert1.dessiner(requete, cadreDessin);
-        dessinerCOR expert1 = new dessinerCOR();
-        dessinerCOR expert2 = new dessinerCOR(expert1);
-        dessinerCOR expert3 = new dessinerCOR(expert2);
-        dessinerCOR expert4 = new dessinerCOR(expert3);
+        dessinerCOR expert1 = null;
+        dessinerCOR expert2 = null;
+        dessinerCOR expert3 = null;
+        dessinerCOR expert4 = null;
+        dessinerCOR expert5 = null;
+        
+        expert1.setSuivant(expert2);
+        expert2.setSuivant(expert3);
+        expert3.setSuivant(expert4);
+        expert4.setSuivant(expert5);
         
         expert1.dessiner(requête, cadreDessin);
         
