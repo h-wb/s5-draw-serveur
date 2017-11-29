@@ -9,7 +9,7 @@ public abstract class dessinerCOR implements dessiner
 {
 	dessiner suivant;
 	Color couleurs[]={Color.black, Color.blue, Color.red, Color.green, Color.yellow, Color.cyan};
-	
+	//bite;
 	public dessinerCOR() 
 	{
 		
