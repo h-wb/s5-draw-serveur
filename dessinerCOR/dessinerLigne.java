@@ -1,5 +1,7 @@
 package dessinerCOR;
 
+import java.awt.Color;
+
 import serveur.CadreDessin;
 
 public class dessinerLigne extends dessinerCOR
@@ -15,13 +17,17 @@ public class dessinerLigne extends dessinerCOR
 		 String[] arguments = requete.split(",");                     
 		    
 		 String opération;
+		 Color couleur;
 		 int x1, y1, x2, y2;
     
 		 opération = arguments[0].trim();
-		 x1 = Integer.parseInt(arguments[1].trim());
-		 y1 = Integer.parseInt(arguments[2].trim());
-		 x2 = Integer.parseInt(arguments[3].trim());
-		 y2 = Integer.parseInt(arguments[4].trim());
+		 couleur = new Color(Integer.parseInt(arguments[1].trim()));
+		 cadre.graphics.setColor(couleur);
+		 
+		 x1 = Integer.parseInt(arguments[2].trim());
+		 y1 = Integer.parseInt(arguments[3].trim());
+		 x2 = Integer.parseInt(arguments[4].trim());
+		 y2 = Integer.parseInt(arguments[5].trim());
         
 		 if (opération.equalsIgnoreCase("drawLine")) cadre.graphics.drawLine(x1,y1,x2,y2);
         else
