@@ -23,7 +23,7 @@ public class dessinerOval extends dessinerCOR
 		 x2 = Integer.parseInt(arguments[3].trim());
 		 y2 = Integer.parseInt(arguments[4].trim());
         
-		 if (opération.equalsIgnoreCase("drawOval")) cadre.graphics.drawOval(x1,y1,x2,y2);
+		 if (opération.equalsIgnoreCase("fillOval")) cadre.graphics.fillOval(x1,y1,x2,y2);
         else
         {
         	return false;

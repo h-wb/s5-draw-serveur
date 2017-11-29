@@ -17,8 +17,6 @@ public abstract class dessinerCOR implements dessiner
 	{
 		this.suivant=expert1;
 	}
-
-	
 	
 	
 	public dessiner getSuivant() 
@@ -37,7 +35,7 @@ public abstract class dessinerCOR implements dessiner
 
 	public void dessiner(String requete, CadreDessin cadre) 
 	{
-		if(this.dessiner1(requete, cadre)==true)
+		if(this.dessiner1(requete, cadre))
 		{
 			
 		}

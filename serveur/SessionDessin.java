@@ -19,6 +19,9 @@ import java.io.InputStreamReader;
 import java.net.SocketException;
 
 import dessinerCOR.dessinerCOR;
+import dessinerCOR.dessinerLigne;
+import dessinerCOR.dessinerOval;
+import dessinerCOR.dessinerRectangle;
 
 
 public class SessionDessin extends Thread
@@ -37,6 +40,7 @@ this.socket = socket;
 this.fluxEntrant = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
 }
 
+@SuppressWarnings("null")
 @Override
 public void run()
 {
@@ -69,16 +73,15 @@ try
         //
         //
         //expert1.dessiner(requete, cadreDessin);
-        dessinerCOR expert1 = null;
-        dessinerCOR expert2 = null;
-        dessinerCOR expert3 = null;
-        dessinerCOR expert4 = null;
-        dessinerCOR expert5 = null;
         
+        dessinerLigne expert1 = new dessinerLigne();
+        dessinerOval expert2 = new dessinerOval();
+        dessinerRectangle expert3 = new dessinerRectangle();
+        dessinerRectangle expert4=null;
+                
         expert1.setSuivant(expert2);
         expert2.setSuivant(expert3);
         expert3.setSuivant(expert4);
-        expert4.setSuivant(expert5);
         
         expert1.dessiner(requête, cadreDessin);
         
