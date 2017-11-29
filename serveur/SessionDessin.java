@@ -74,6 +74,7 @@ try
         //
         //expert1.dessiner(requete, cadreDessin);
         
+        
         dessinerLigne expert1 = new dessinerLigne();
         dessinerOval expert2 = new dessinerOval();
         dessinerRectangle expert3 = new dessinerRectangle();
