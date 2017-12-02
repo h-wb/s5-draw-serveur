@@ -19,9 +19,8 @@ import java.io.InputStreamReader;
 import java.net.SocketException;
 
 import dessinerCOR.dessinerCOR;
-import dessinerCOR.dessinerLigne;
-import dessinerCOR.dessinerOval;
-import dessinerCOR.dessinerRectangle;
+import dessinerCOR.ExpertSegment;
+import dessinerCOR.ExpertRond;
 
 
 public class SessionDessin extends Thread
@@ -44,38 +43,37 @@ this.fluxEntrant = new BufferedReader(new InputStreamReader(this.socket.getInput
 @Override
 public void run()
 {
-String requête;
-
+	String requete;
 try
     {
-    requête = this.fluxEntrant.readLine();  // lit le titre et les 4 coordonnées Ox, Oy, largeur et hauteur de la fenêtre, les arguments sont séparés par des ","
-    System.out.println("requête reçue : " + requête);
-    
-    String arguments[] = requête.split(",");            // redondance de code à éliminer
-    
-    String titre;
-    int Ox, Oy, largeur, hauteur;
-    
-    titre = arguments[0].trim();
-    Ox = Integer.parseInt(arguments[1].trim());         // redondance de code à éliminer pour 8 lignes !!!! cf. lignes suivantes
-    Oy = Integer.parseInt(arguments[2].trim());
-    largeur = Integer.parseInt(arguments[3].trim());
-    hauteur = Integer.parseInt(arguments[4].trim());
-    
-    CadreDessin cadreDessin = new CadreDessin(titre,Ox,Oy,largeur,hauteur);
+	requete = this.fluxEntrant.readLine();  // lit l'instruction de tracé et les 4 paramètres entiers du tracé, les arguments sont séparés par des ","
+    System.out.println("requête fenêtre reçue : " + requete);
+    String arguments[] = requete.split(",");
+    requete = "";
+    CadreDessin cadre = new CadreDessin(arguments);
     
     while (true)
         {
-        requête = this.fluxEntrant.readLine();  // lit l'instruction de tracé et les 4 paramètres entiers du tracé, les arguments sont séparés par des ","
+    	requete = this.fluxEntrant.readLine();  // lit l'instruction de tracé et les 4 paramètres entiers du tracé, les arguments sont séparés par des ","
+        System.out.println("requête reçue : " + requete);
+        String arguments2[] = requete.split(",");
+        ExpertSegment expert1 = new ExpertSegment();
+        ExpertRond expert2 = new ExpertRond();
         
-        System.out.println("requête reçue : " + requête);
+
+                
+        expert1.setSuivant(expert2);
+        
+        expert1.dessiner(arguments2, cadre);
+        
+        
         //Créer la chaîne d'expert
         //
         //
-        //expert1.dessiner(requete, cadreDessin);
+       
         
         
-        dessinerLigne expert1 = new dessinerLigne();
+        /*dessinerLigne expert1 = new dessinerLigne();
         dessinerOval expert2 = new dessinerOval();
         dessinerRectangle expert3 = new dessinerRectangle();
         dessinerRectangle expert4=null;

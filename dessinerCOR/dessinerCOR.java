@@ -38,7 +38,7 @@ public abstract class dessinerCOR implements dessiner
 
 
 
-	public void dessiner(String requete, CadreDessin cadre) 
+	public void dessiner(String requete[], CadreDessin cadre) 
 	{
 		if(this.dessiner1(requete, cadre))
 		{
@@ -51,7 +51,7 @@ public abstract class dessinerCOR implements dessiner
 	}
 	
 	
-	public abstract boolean dessiner1(String requete, CadreDessin cadre); 
+	public abstract boolean dessiner1(String requete[], CadreDessin cadre); 
 }
 
 

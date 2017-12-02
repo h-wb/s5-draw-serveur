@@ -4,5 +4,5 @@ import serveur.CadreDessin;
 
 public interface dessiner 
 {
-	abstract void dessiner(String requete, CadreDessin cadre);
+	abstract void dessiner(String requete[], CadreDessin cadre);
 }

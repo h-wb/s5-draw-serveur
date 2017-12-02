@@ -4,3 +4,8 @@
 /dessinerOval.class
 /dessinerLigne.class
 /dessinerRectangle.class
+/DessinerSegment.class
+/ExpertSegment.class
+/ExpertRond.class
+/ExpertFormeComposee.class
+/ExpertPolygone.class
